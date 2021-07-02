@@ -1,6 +1,6 @@
 package br.com.zup.autores.request
 
-import br.com.zup.autores.entities.Autor.Autor
+import br.com.zup.autores.entities.autor.entity.Autor
 import io.micronaut.core.annotation.Introspected
 import org.hibernate.validator.constraints.br.CPF
 import javax.validation.constraints.Email
