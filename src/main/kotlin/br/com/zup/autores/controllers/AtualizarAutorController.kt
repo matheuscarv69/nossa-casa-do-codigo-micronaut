@@ -10,7 +10,6 @@ import io.micronaut.http.annotation.Put
 @Controller("/autores/{id}")
 class AtualizarAutorController(val autorRepository: AutorRepository) {
 
-
     @Put
     fun atualiza(@PathVariable id: Long, descricaoReq: String): HttpResponse<Any> {
         return autorRepository.findById(id).let { possivelAutor ->
@@ -25,6 +24,5 @@ class AtualizarAutorController(val autorRepository: AutorRepository) {
             HttpResponse.ok(DetalhesDoAutorResponse(autorAtualizado))
         }
     }
-
 
 }

@@ -9,7 +9,6 @@ import io.micronaut.http.annotation.PathVariable
 @Controller("/autores/{id}")
 class DeletarAutorController(val autorRepository: AutorRepository) {
 
-
     @Delete
     fun deleta(@PathVariable id: Long): HttpResponse<Any> {
         return autorRepository.findById(id).let { possivelAutor ->
