@@ -26,4 +26,3 @@ jpa:
       hibernate:
         hb2ddl:
           auto: update
-
