@@ -1,6 +1,7 @@
 package br.com.zup.autores.entities.autor.repositories
 
 import br.com.zup.autores.entities.autor.entity.Autor
+import io.micronaut.data.annotation.Query
 import io.micronaut.data.annotation.Repository
 import io.micronaut.data.jpa.repository.JpaRepository
 import java.util.*
@@ -9,5 +10,11 @@ import java.util.*
 interface AutorRepository : JpaRepository<Autor, Long> {
 
     fun findByEmail(email: String): Optional<Autor>
+
+    @Query("SELECT a FROM Autor a WHERE a.cpf = :cpf")
+    fun buscaPorCpf(cpf: String): Optional<Autor>
+
+    @Query("SELECT * FROM AUTOR AS A WHERE A.CPF = :cpf", nativeQuery = true)
+    fun procuraPorCpf(cpf:String): Optional<Autor>
 
 }

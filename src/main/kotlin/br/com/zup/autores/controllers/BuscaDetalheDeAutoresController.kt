@@ -13,12 +13,27 @@ class BuscaDetalheDeAutoresController(val autorRepository: AutorRepository) {
 
 
     @Get
-    fun buscaDetalheAutores(@QueryValue(defaultValue = "") email: String, pageable: Pageable): HttpResponse<Any> {
-        if (email.isEmpty()) {
+    fun buscaDetalheAutores(
+        @QueryValue(defaultValue = "") email: String,
+        @QueryValue(defaultValue = "") cpf: String,
+        pageable: Pageable
+    ): HttpResponse<Any> {
+        if (email.isEmpty() && cpf.isEmpty()) {
             return autorRepository.findAll(pageable).map { autor ->
                 DetalhesDoAutorResponse(autor)
             }.let { autores ->
                 HttpResponse.ok(autores)
+            }
+        }
+
+        if (cpf.isNotEmpty()) {
+            return autorRepository.procuraPorCpf(cpf).let { possivelAutor ->
+                if (possivelAutor.isEmpty) {
+                    return HttpResponse.notFound()
+                }
+                possivelAutor.get()
+            }.let { autor ->
+                HttpResponse.ok(DetalhesDoAutorResponse(autor))
             }
         }
 
