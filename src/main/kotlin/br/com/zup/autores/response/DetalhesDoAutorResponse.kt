@@ -8,6 +8,6 @@ class DetalhesDoAutorResponse(autor: Autor) {
     val email = autor.email
     val cpf = autor.cpf
     val descricao = autor.descricao
-    val criadoEm = autor.criadoEm
+    val criadoEm = autor.criadoEm.toString()
 
 }
