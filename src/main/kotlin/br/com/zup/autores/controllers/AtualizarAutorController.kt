@@ -6,11 +6,13 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.PathVariable
 import io.micronaut.http.annotation.Put
+import javax.transaction.Transactional
 
 @Controller("/autores/{id}")
 class AtualizarAutorController(val autorRepository: AutorRepository) {
 
     @Put
+    @Transactional
     fun atualiza(@PathVariable id: Long, descricaoReq: String): HttpResponse<Any> {
         return autorRepository.findById(id).let { possivelAutor ->
             if (possivelAutor.isEmpty) {
@@ -19,7 +21,7 @@ class AtualizarAutorController(val autorRepository: AutorRepository) {
             possivelAutor.get()
         }.apply {
             this.descricao = descricaoReq
-            autorRepository.update(this)
+//            autorRepository.update(this) // omitido pois a classe esta anotada com @Transactional e o autor encontra-se no estado de managed
         }.let { autorAtualizado ->
             HttpResponse.ok(DetalhesDoAutorResponse(autorAtualizado))
         }

@@ -7,12 +7,14 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.QueryValue
+import javax.transaction.Transactional
 
 @Controller("/autores")
 class BuscaDetalheDeAutoresController(val autorRepository: AutorRepository) {
 
 
     @Get
+    @Transactional
     fun buscaDetalheAutores(
         @QueryValue(defaultValue = "") email: String,
         @QueryValue(defaultValue = "") cpf: String,
