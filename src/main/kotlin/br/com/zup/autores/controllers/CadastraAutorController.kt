@@ -2,6 +2,8 @@ package br.com.zup.autores.controllers
 
 import br.com.zup.autores.entities.autor.repositories.AutorRepository
 import br.com.zup.autores.request.NovoAutorRequest
+import br.com.zup.autores.response.EnderecoResponse
+import br.com.zup.core.EnderecoClient
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
@@ -13,16 +15,18 @@ import javax.validation.Valid
 
 @Validated
 @Controller("/autores")
-class CadastraAutorController(val autorRepository: AutorRepository) {
+class CadastraAutorController(
+    val autorRepository: AutorRepository,
+    val enderecoClient: EnderecoClient
+) {
 
     @Post
     @Transactional
     fun cadastra(@Body @Valid req: NovoAutorRequest): HttpResponse<Any> {
-        println("Request -> $req")
+        val enderecoResponse = enderecoClient.consulta(req.cep)
+            ?: return HttpResponse.badRequest("CEP informado é inválido")
 
-        println("Convertendo Request para Autor: ")
-
-        return req.paraAutor()
+        return req.paraAutor(enderecoResponse.body()!!)
             .apply {
                 println("Autor: ${this.nome}")
                 autorRepository.save(this)

@@ -10,8 +10,9 @@ class Autor(
     val nome: String,
     val email: String,
     val cpf: String,
+    val endereco: Endereco,
     var descricao: String
-){
+) {
 
     @Id
     @GeneratedValue

@@ -20,6 +20,7 @@ class BuscaDetalheDeAutoresController(val autorRepository: AutorRepository) {
         @QueryValue(defaultValue = "") cpf: String,
         pageable: Pageable
     ): HttpResponse<Any> {
+
         if (email.isEmpty() && cpf.isEmpty()) {
             return autorRepository.findAll(pageable).map { autor ->
                 DetalhesDoAutorResponse(autor)

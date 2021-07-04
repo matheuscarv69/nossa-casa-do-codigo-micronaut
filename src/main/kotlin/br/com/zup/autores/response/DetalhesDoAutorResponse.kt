@@ -9,5 +9,6 @@ class DetalhesDoAutorResponse(autor: Autor) {
     val cpf = autor.cpf
     val descricao = autor.descricao
     val criadoEm = autor.criadoEm.toString()
+    val endereco = autor.endereco
 
 }

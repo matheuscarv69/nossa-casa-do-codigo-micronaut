@@ -4,25 +4,23 @@ micronaut:
 
 datasources:
   default:
-    #    h2
-    #    url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
-    #    driverClassName: org.h2.Driver
-    #    username: sa
-    #    password: ''
-    #    schema-generate: CREATE_DROP
-    #    dialect: H2
-
-    url: ${$POSTGRES_URL:`jdbc:postgresql://localhost:5432/casa-do-codigo`}
+    #    url: ${$POSTGRES_URL:`jdbc:postgresql://localhost:5432/casa-do-codigo`}
+    url: jdbc:postgresql://localhost:5432/casa-do-codigo
     driverClassName: org.postgresql.Driver
     username: ${POSTGRES_USERNAME:`postgres`}
     password: ${POSTGRES_PASSWORD:`password`}
     schema: cdc
-#    schema-generate: CREATE_DROP
+    schema-generate: CREATE_DROP
 #    dialect: H2
+
+#jpa.default.properties.hibernate.hbm2ddl.auto: update
 
 jpa:
   default:
     properties:
       hibernate:
-        hb2ddl:
+        hbm2ddl:
           auto: update
+
+# api externa
+url-service-cep: https://brasilapi.com.br/api/cep/v1
