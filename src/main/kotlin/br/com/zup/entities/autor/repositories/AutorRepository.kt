@@ -1,6 +1,6 @@
-package br.com.zup.autores.entities.autor.repositories
+package br.com.zup.entities.autor.repositories
 
-import br.com.zup.autores.entities.autor.entity.Autor
+import br.com.zup.entities.autor.entities.Autor
 import io.micronaut.data.annotation.Query
 import io.micronaut.data.annotation.Repository
 import io.micronaut.data.jpa.repository.JpaRepository

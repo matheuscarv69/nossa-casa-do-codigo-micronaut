@@ -1,6 +1,6 @@
-package br.com.zup.autores.entities.autor.entity
+package br.com.zup.entities.autor.entities
 
-import br.com.zup.autores.response.EnderecoResponse
+import br.com.zup.entities.autor.response.EnderecoResponse
 import javax.persistence.Embeddable
 
 @Embeddable

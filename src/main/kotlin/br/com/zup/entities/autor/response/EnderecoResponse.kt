@@ -1,4 +1,4 @@
-package br.com.zup.autores.response
+package br.com.zup.entities.autor.response
 
 data class EnderecoResponse(
     val cep: String,

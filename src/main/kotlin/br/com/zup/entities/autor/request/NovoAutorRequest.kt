@@ -1,8 +1,8 @@
-package br.com.zup.autores.request
+package br.com.zup.entities.autor.request
 
-import br.com.zup.autores.entities.autor.entity.Autor
-import br.com.zup.autores.entities.autor.entity.Endereco
-import br.com.zup.autores.response.EnderecoResponse
+import br.com.zup.entities.autor.entities.Autor
+import br.com.zup.entities.autor.entities.Endereco
+import br.com.zup.entities.autor.response.EnderecoResponse
 import io.micronaut.core.annotation.Introspected
 import org.hibernate.validator.constraints.br.CPF
 import javax.validation.constraints.Email

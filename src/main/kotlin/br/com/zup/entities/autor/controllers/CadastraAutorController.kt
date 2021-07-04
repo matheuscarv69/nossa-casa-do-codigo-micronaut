@@ -1,8 +1,7 @@
-package br.com.zup.autores.controllers
+package br.com.zup.entities.autor.controllers
 
-import br.com.zup.autores.entities.autor.repositories.AutorRepository
-import br.com.zup.autores.request.NovoAutorRequest
-import br.com.zup.autores.response.EnderecoResponse
+import br.com.zup.entities.autor.repositories.AutorRepository
+import br.com.zup.entities.autor.request.NovoAutorRequest
 import br.com.zup.core.EnderecoClient
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Body

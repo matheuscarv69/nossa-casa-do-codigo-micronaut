@@ -1,6 +1,6 @@
-package br.com.zup.autores.response
+package br.com.zup.entities.autor.response
 
-import br.com.zup.autores.entities.autor.entity.Autor
+import br.com.zup.entities.autor.entities.Autor
 
 class DetalhesDoAutorResponse(autor: Autor) {
 
