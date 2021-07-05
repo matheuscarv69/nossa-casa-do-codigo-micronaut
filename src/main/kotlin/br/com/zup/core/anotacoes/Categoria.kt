@@ -22,7 +22,7 @@ class CategoriaValidator : ConstraintValidator<Categoria, String> {
         annotationMetadata: AnnotationValue<Categoria>,
         context: ConstraintValidatorContext
     ): Boolean {
-        val categorias = arrayOf("Liderança", "Cultura", "Filosofia")
+        val categorias = arrayOf("Liderança", "Cultura", "Filosofia", "Estratégia")
 
         return categorias.contains(value)
     }

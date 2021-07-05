@@ -4,22 +4,15 @@ micronaut:
 
 datasources:
   default:
-    url: ${$POSTGRES_URL:`jdbc:postgresql://localhost:5432/casa-do-codigo`}
+    url: ${$POSTGRES_URL:`jdbc:postgresql://localhost:5432/casa-do-codigo?currentSchema=cdc`}
     driverClassName: org.postgresql.Driver
     username: ${POSTGRES_USERNAME:`postgres`}
     password: ${POSTGRES_PASSWORD:`password`}
-    schema: cdc
     schema-generate: CREATE_DROP
-#    dialect: H2
 
-#jpa.default.properties.hibernate.hbm2ddl.auto: update
-
-jpa:
-  default:
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: update
+jpa.default.properties.hibernate.hbm2ddl.auto: update
+jpa.default.properties.hibernate.show_sql: true
+jpa.default.properties.hibernate.format_sql: true
 
 # api externa
 url-service-cep: https://brasilapi.com.br/api/cep/v1
