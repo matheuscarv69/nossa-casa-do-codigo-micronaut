@@ -10,16 +10,6 @@ data class EnderecoResponse(
     val street: String,
 ) {
 
-    constructor(
-        endereco: Endereco
-    ) : this(
-        endereco.cep,
-        endereco.estado,
-        endereco.cidade,
-        endereco.bairro,
-        endereco.rua
-    )
-
     fun paraEndereco(numero: String): Endereco {
         return Endereco(
             cep = cep,

@@ -1,14 +1,24 @@
 package br.com.zup.entities.autor.response
 
 import br.com.zup.entities.autor.entities.Autor
+import br.com.zup.entities.autor.entities.Endereco
 
-data class DetalhesDoAutorResponse(val autor: Autor) {
+data class DetalhesDoAutorResponse(
+    val nome: String,
+    val email: String,
+    val cpf: String,
+    val descricao: String,
+    val criadoEm: String,
+    val endereco: Endereco
+) {
 
-    val nome = autor.nome
-    val email = autor.email
-    val cpf = autor.cpf
-    val descricao = autor.descricao
-    val criadoEm = autor.criadoEm.toString()
-    val endereco = EnderecoResponse(autor.endereco)
+    constructor(autor: Autor) : this(
+        autor.nome,
+        autor.email,
+        autor.cpf,
+        autor.descricao,
+        autor.criadoEm.toString(),
+        Endereco(autor.endereco)
+    )
 
 }
