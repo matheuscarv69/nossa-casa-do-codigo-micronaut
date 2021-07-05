@@ -4,8 +4,7 @@ micronaut:
 
 datasources:
   default:
-    #    url: ${$POSTGRES_URL:`jdbc:postgresql://localhost:5432/casa-do-codigo`}
-    url: jdbc:postgresql://localhost:5432/casa-do-codigo
+    url: ${$POSTGRES_URL:`jdbc:postgresql://localhost:5432/casa-do-codigo`}
     driverClassName: org.postgresql.Driver
     username: ${POSTGRES_USERNAME:`postgres`}
     password: ${POSTGRES_PASSWORD:`password`}
