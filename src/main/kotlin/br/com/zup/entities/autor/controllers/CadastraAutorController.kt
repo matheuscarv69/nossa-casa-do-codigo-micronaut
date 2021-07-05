@@ -25,7 +25,9 @@ class CadastraAutorController(
         val enderecoResponse = enderecoClient.consulta(req.cep)
             ?: return HttpResponse.badRequest("CEP informado é inválido")
 
-        return req.paraAutor(enderecoResponse.body()!!)
+        val endereco = enderecoResponse.body()!!.paraEndereco(req.numero)
+
+        return req.paraAutor(endereco)
             .apply {
                 println("Autor: ${this.nome}")
                 autorRepository.save(this)

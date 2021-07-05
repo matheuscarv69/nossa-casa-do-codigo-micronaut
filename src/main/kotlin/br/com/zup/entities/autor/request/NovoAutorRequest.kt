@@ -19,9 +19,7 @@ data class NovoAutorRequest(
     @field:NotBlank @field:Size(max = 400) val descricao: String
 ) {
 
-    fun paraAutor(enderecoResp: EnderecoResponse): Autor {
-        val endereco = Endereco(enderecoResp = enderecoResp, numero = numero)
-
+    fun paraAutor(endereco: Endereco): Autor {
         return Autor(
             nome = nome,
             email = email,
