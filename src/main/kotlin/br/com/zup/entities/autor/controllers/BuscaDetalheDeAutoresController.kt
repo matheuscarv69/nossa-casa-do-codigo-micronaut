@@ -12,7 +12,6 @@ import javax.transaction.Transactional
 @Controller("/autores")
 class BuscaDetalheDeAutoresController(val autorRepository: AutorRepository) {
 
-
     @Get
     @Transactional
     fun buscaDetalheAutores(

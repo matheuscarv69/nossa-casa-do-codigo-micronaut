@@ -44,14 +44,22 @@ dependencies {
     implementation("org.hibernate:hibernate-validator:6.1.6.Final")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    // JPA
+//  JPA
     runtime("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa:2.4.5")
-    implementation( "org.postgresql:postgresql:42.2.22")
+    implementation("org.postgresql:postgresql:42.2.22")
 
-//    jackson xml
+//  Jackson xml
     implementation("io.micronaut.xml:micronaut-jackson-xml")
 
+//   Tests
+//    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
+//    testImplementation("io.micronaut:micronaut-http-client")
+//    testImplementation("org.junit.jupiter:junit-jupiter-api")
+//    testImplementation("org.mockito:mockito-core:3.8.0")
+//    testImplementation("io.micronaut.test:micronaut-test-junit5:2.3.2")
+//    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+//    testImplementation("com.h2database:h2")
 }
 
 

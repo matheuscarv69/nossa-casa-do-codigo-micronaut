@@ -24,7 +24,7 @@ data class NovoAutorRequest(
             nome = nome,
             email = email,
             cpf = cpf,
-//            endereco = endereco,
+            endereco = endereco,
             descricao = descricao
         )
     }

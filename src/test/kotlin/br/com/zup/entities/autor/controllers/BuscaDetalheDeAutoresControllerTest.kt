@@ -30,21 +30,21 @@ internal class BuscaDetalheDeAutoresControllerTest {
 
     @BeforeEach
     internal fun setUp() {
-//        val enderecoResp = EnderecoResponse(
-//            "69316398",
-//            "RR",
-//            "Boa Vista",
-//            "Senador Hélio Campos",
-//            "Avenida Abel Monteiro Reis"
-//        )
-//
-//        val endereco = enderecoResp.paraEndereco("692")
+        val enderecoResp = EnderecoResponse(
+            "69316398",
+            "RR",
+            "Boa Vista",
+            "Senador Hélio Campos",
+            "Avenida Abel Monteiro Reis"
+        )
+
+        val endereco = enderecoResp.paraEndereco("692")
 
         autor = Autor(
             "Rafael Ponte",
             "rafael.ponte@zup.com.br",
             "10489029000",
-//            endereco,
+            endereco,
             "Marajá dos Legados"
         )
 
