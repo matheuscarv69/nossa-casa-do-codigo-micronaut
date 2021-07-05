@@ -10,7 +10,7 @@ class Autor(
     val nome: String,
     val email: String,
     val cpf: String,
-    val endereco: Endereco,
+//    val endereco: Endereco,
     var descricao: String
 ) {
 
